@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+    <thead class="thead-dark">
+        <tr>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; index as i">
+            <td>{{ product.product_name }}</td>
+            <td>{{ product.product_description }}</td>
+            <td>{{ product.product_price }}</td>
+            <td><a [routerLink]="['/edit', product._id]" class="btn btn-primary">Edit</a></td>
+            <td><a (click)="delete_product(product._id, i)" class="btn btn-danger">Delete</a></td>
+        </tr>
+    </tbody>
+</table>

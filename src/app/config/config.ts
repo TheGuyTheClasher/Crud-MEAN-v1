@@ -1,0 +1,1 @@
+export const config = { uri: "http://localhost:8080/products" }

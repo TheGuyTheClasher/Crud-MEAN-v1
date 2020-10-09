@@ -1,0 +1,41 @@
+<div class="card">
+    <div class="card-body">
+        <form [formGroup]="ang_form" (ngSubmit)="add_product(ang_form)" novalidate>
+            <div class="form-group">
+                <label class="col-md-4">Product Name</label>
+                <input type="text" class="form-control" name="product_name" formControlName="product_name" />
+            </div>
+            <div *ngIf="ang_form.controls.product_name.invalid && ang_form.controls.product_name.touched"
+                class="alert alert-danger">
+                <div>
+                    Product name cannot be empty.
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Product Description </label>
+                <textarea class="form-control" rows=7 cols="5" name="product_description"
+                    formControlName="product_description"></textarea>
+            </div>
+            <div *ngIf="ang_form.controls.product_description.invalid && ang_form.controls.product_description.touched"
+                class="alert alert-danger">
+                <div>
+                    Product description is required!
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-4">Product Price</label>
+                <input type="text" class="form-control" name="product_price" formControlName="product_price" />
+            </div>
+            <div *ngIf="ang_form.controls.product_price.invalid && ang_form.controls.product_price.touched"
+                class="alert alert-danger">
+                <div>
+                    Product price cannot be empty.
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" [disabled]="ang_form.pristine || ang_form.invalid">Create
+                    Product</button>
+            </div>
+        </form>
+    </div>
+</div>
